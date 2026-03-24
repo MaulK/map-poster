@@ -8,4 +8,8 @@ export interface PosterState {
   zoom: number;
   themeUrl: string;
   posterStyle: string;
+  margin: number;
+  fontFamily: string;
+  textColor: string;
+  paperColor: string;
 }

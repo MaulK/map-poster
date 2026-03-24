@@ -14,7 +14,11 @@ export default function App() {
     bbox: undefined,
     zoom: 12,
     themeUrl: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-    posterStyle: 'A4 Portrait (21x29.7cm)'
+    posterStyle: 'A4 Portrait (21x29.7cm)',
+    margin: 3,
+    fontFamily: 'var(--font-poster-sans)',
+    textColor: '#111111',
+    paperColor: '#FEFAF6'
   });
 
   return (

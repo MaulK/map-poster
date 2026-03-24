@@ -151,6 +151,55 @@ export default function Sidebar({ state, setState }: SidebarProps) {
         </div>
 
         <div className="control-group">
+          <label className="control-label">Typography & Color</label>
+          <select 
+             className="btn" 
+             value={state.fontFamily}
+             onChange={e => setState(prev => ({ ...prev, fontFamily: e.target.value }))}
+             style={{ width: '100%', textAlign: 'left', appearance: 'none', marginBottom: '8px' }}
+           >
+              <option value="var(--font-poster-sans)">Modern Sans</option>
+              <option value="var(--font-poster-serif)">Elegant Serif</option>
+              <option value="var(--font-ui)">Clean Tech</option>
+           </select>
+
+           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+              <div>
+                <label style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', display: 'block', marginBottom: '4px' }}>Text / Frame</label>
+                <input 
+                  type="color" 
+                  value={state.textColor}
+                  onChange={e => setState(prev => ({ ...prev, textColor: e.target.value }))}
+                  style={{ width: '100%', height: '36px', padding: '2px', cursor: 'pointer', border: '1px solid var(--panel-border)', borderRadius: '4px' }}
+                />
+              </div>
+              <div>
+                <label style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', display: 'block', marginBottom: '4px' }}>Paper / BG</label>
+                <input 
+                  type="color" 
+                  value={state.paperColor}
+                  onChange={e => setState(prev => ({ ...prev, paperColor: e.target.value }))}
+                  style={{ width: '100%', height: '36px', padding: '2px', cursor: 'pointer', border: '1px solid var(--panel-border)', borderRadius: '4px' }}
+                />
+              </div>
+           </div>
+        </div>
+
+        <div className="control-group">
+          <label className="control-label">Poster Margin (%)</label>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <input 
+              type="range" 
+              min="0" max="15" step="1"
+              value={state.margin}
+              onChange={e => setState(prev => ({ ...prev, margin: parseInt(e.target.value) }))}
+              style={{ flex: 1 }}
+            />
+            <span style={{ fontSize: '0.8rem', fontWeight: 600, minWidth: '30px', textAlign: 'right' }}>{state.margin}%</span>
+          </div>
+        </div>
+
+        <div className="control-group">
           <label className="control-label">Custom Labels</label>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <input 

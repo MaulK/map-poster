@@ -14,11 +14,10 @@ export default function PosterPreview({ state }: PosterPreviewProps) {
   };
 
   // The text color depends lightly on theme or can be forced for simplicity.
-  const isDarkTheme = state.themeUrl.includes('dark');
-  const frameColor = isDarkTheme ? '#111' : '#111';
-  const paperColor = isDarkTheme ? '#1a1a1a' : '#FEFAF6';
-  const textColor = isDarkTheme ? '#f1f1f1' : '#111';
-  const subtitleColor = isDarkTheme ? '#aaa' : '#333';
+  const frameColor = state.textColor;
+  const paperColor = state.paperColor;
+  const textColor = state.textColor;
+  const subtitleColor = state.textColor;
   
   return (
     <div 
@@ -29,7 +28,7 @@ export default function PosterPreview({ state }: PosterPreviewProps) {
         backgroundColor: paperColor,
         display: 'flex',
         flexDirection: 'column',
-        padding: '3%',
+        padding: `${state.margin}%`,
       }}
     >
       {/* Inner Frame */}
@@ -70,7 +69,7 @@ export default function PosterPreview({ state }: PosterPreviewProps) {
         >
           <h2 
             style={{ 
-              fontFamily: 'var(--font-poster-sans)', 
+              fontFamily: state.fontFamily, 
               fontSize: '3rem', 
               fontWeight: 800, 
               letterSpacing: '0.2em', 
